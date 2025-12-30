@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KungfuMaster - 武侠江湖</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚔️</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- 游戏画布 -->
+        <canvas id="game-canvas"></canvas>
+        
+        <!-- 游戏UI层 -->
+        <div id="game-ui">
+            <div id="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-icon">🩸</span>
+                    <span id="hp-display">100/100</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">💰</span>
+                    <span id="gold-display">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">⚔️</span>
+                    <span id="weapons-display">3/6</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">📊</span>
+                    <span id="level-display">Lv.1</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">💀</span>
+                    <span id="kills-display">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">⏱️</span>
+                    <span id="time-display">00:00</span>
+                </div>
+            </div>
+            
+            <div id="stage-display">
+                <span id="current-stage">第 1 关</span>
+                <span>/ 共 10 关</span>
+            </div>
+        </div>
+        
+        <!-- 酒馆显示 -->
+        <div id="taverns-container">
+            <div id="tavern-a" class="tavern tavern-a">
+            </div>
+            <div id="tavern-c" class="tavern tavern-c">
+            </div>
+        </div>
+        
+        <!-- 开始界面 -->
+        <div id="start-screen" class="screen">
+            <h1>⚔️ KungfuMaster ⚔️</h1>
+            <h2>武侠江湖 - 武僧割草游戏</h2>
+            <p>使用 ← → ↑ ↓ 或 WASD 移动武僧</p>
+            <p>旋转武器消灭怪物，坚持20分钟通关！</p>
+            <button id="start-button" class="btn">开始游戏</button>
+        </div>
+        
+        <!-- 游戏结束界面 -->
+        <div id="game-over-screen" class="screen hidden">
+            <h1>💀 游戏结束</h1>
+            <div id="game-over-stats">
+                <p>击杀怪物: <span id="final-kills">0</span></p>
+                <p>获得金币: <span id="final-gold">0</span></p>
+                <p>最高等级: <span id="final-level">1</span></p>
+                <p>通关进度: <span id="final-stage">1/10</span></p>
+            </div>
+            <button id="restart-button" class="btn">重新开始</button>
+        </div>
+        
+        <!-- 通关界面 -->
+        <div id="victory-screen" class="screen hidden">
+            <h1>🏆 通关成功！</h1>
+            <div id="victory-stats">
+                <p>恭喜你坚持了20分钟！</p>
+                <p>击杀怪物: <span id="victory-kills">0</span></p>
+                <p>获得金币: <span id="victory-gold">0</span></p>
+                <p>最终等级: <span id="victory-level">1</span></p>
+            </div>
+            <button id="play-again-button" class="btn">再玩一次</button>
+        </div>
+    </div>
+
+    <!-- 背景音乐 -->
+    <audio id="bgm-audio" loop>
+        <source src="bgm.mp3" type="audio/mpeg">
+    </audio>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
+
